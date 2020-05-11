@@ -23,7 +23,7 @@ const HeaderField = () => {
           </p>
           <br />
           <p>
-            Or, if you want, you can click the &#34Read a Message&#34 button to see
+            Or, if you want, you can click the &#34;Read a Message&#34; button to see
             what someone else has written.
           </p>
           <br />
