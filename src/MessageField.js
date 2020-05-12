@@ -4,10 +4,15 @@ const MessageField = () => {
   const [message, setMessage] = useState("Dear Website...,\n\n");
   const [anotherMessage, isAnotherMessage] = useState(true);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(Date.now());
-    console.log(message);
+    fetch('https://messagebottle.netlify.app/.netlify/functions/message.write', {
+      method: 'POST',
+      mode: 'cors',
+      headers: {'Content-Type': 'text/plain'},
+      body: message
+    }).catch(err => console.log(err));
+    isAnotherMessage(false);
   };
 
   return (

@@ -7,9 +7,15 @@ const HeaderField = () => {
 
   const requestMessage = (e) => {
     e.preventDefault();
-    isMessageRequested(false);
-    console.log(reqMessage);
-    setReqMessage("");
+    fetch('https://messagebottle.netlify.app/.netlify/functions/message.read', {
+      method: 'GET',
+      mode: 'cors',
+      headers: {'Content-Type': 'text/plain'},
+    }).then(response => response.json())
+    .then(res => {
+      isMessageRequested(false);
+      setReqMessage(res.data.body);
+    }).catch(err => console.log(err))
   }
 
   return (
