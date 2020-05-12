@@ -7,7 +7,7 @@ const HeaderField = () => {
 
   const requestMessage = (e) => {
     e.preventDefault();
-    fetch('https://messagebottle.netlify.app/.netlify/functions/message.read', {
+    fetch('https://messagebottle.netlify.app/.netlify/functions/messageRead', {
       method: 'GET',
       mode: 'cors',
       headers: {'Content-Type': 'text/plain'},

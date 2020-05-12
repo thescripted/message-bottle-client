@@ -6,7 +6,7 @@ const MessageField = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    fetch('https://messagebottle.netlify.app/.netlify/functions/message.write', {
+    fetch('https://messagebottle.netlify.app/.netlify/functions/messageWrite', {
       method: 'POST',
       mode: 'cors',
       headers: {'Content-Type': 'text/plain'},
