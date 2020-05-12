@@ -6,6 +6,12 @@ const MessageField = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if(message === "" || message === "Dear Website...,\n\n") {
+      alert("Please Type a Message");
+      return;
+    }
+
     fetch('https://messagebottle.netlify.app/.netlify/functions/messageWrite', {
       method: 'POST',
       mode: 'cors',
@@ -13,6 +19,7 @@ const MessageField = () => {
       body: message
     }).catch(err => console.log(err));
     isAnotherMessage(false);
+    setMessage("");
   };
 
   return (
