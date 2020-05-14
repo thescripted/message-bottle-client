@@ -4,7 +4,7 @@ const MessageField = () => {
   const [message, setMessage] = useState("Dear Website...,\n\n");
   const [anotherMessage, isAnotherMessage] = useState(true);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if(message === "" || message === "Dear Website...,\n\n") {
