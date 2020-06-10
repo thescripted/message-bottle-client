@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 
 const MessageField = () => {
-  const [message, setMessage] = useState("Dear Website...,\n\n");
+  const [message, setMessage] = useState("");
   const [anotherMessage, isAnotherMessage] = useState(true);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if(message === "" || message === "Dear Website...,\n\n") {
+    if(message.trim() === "") {
       alert("Please Type a Message");
       return;
     }
@@ -26,7 +26,7 @@ const MessageField = () => {
     <div className="text-field">
       {anotherMessage ? (
         <form onSubmit={(e) => handleSubmit(e)}>
-          <textarea
+          <textarea autoFocus 
             className="textarea"
             placeholder="Dear Website...,"
             value={message}
@@ -39,6 +39,7 @@ const MessageField = () => {
         <span className="thank-you">
           <p>Thank you!</p>
           <button
+            autoFocus
             className="submit-button"
             onClick={() => isAnotherMessage(true)}
           >
